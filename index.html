@@ -3,148 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Webpage Title (will show on tab) -->
-    <title>Professional Portfolio</title>
+    <title>Jalyn B. Alexander II | Portfolio</title>
     <style>
-        /* Retro styling for the page */
-        body {
-            font-family: "Courier New", Courier, monospace;
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.75;
-            background: radial-gradient(circle at top left, #ffe29f 0%, #ff8d72 35%, #4b2f6f 100%);
-            color: #1f102f;
+            box-sizing: border-box;
         }
+
+        /* Neon 80s Arcade / TRON Aesthetic */
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e27;
+            color: #00ff88;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Neon glowing text effect */
+        @keyframes neon-glow {
+            0%, 100% {
+                text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88, 0 0 40px #0ff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88, 0 0 40px #00ff88, 0 0 50px #0ff, 0 0 70px #0ff;
+            }
+        }
+
         header {
-            background: linear-gradient(135deg, #2f004f 0%, #7d3d8b 100%);
-            color: #ffeaa7;
-            padding: 1.5rem 0;
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.95), rgba(25, 15, 45, 0.95));
+            border-bottom: 3px solid #ff006e;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            padding: 3rem 2rem;
             text-align: center;
-            box-shadow: inset 0 -4px 15px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
         }
-        nav {
-            margin: 1rem 0;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ff, transparent);
+            animation: scan 8s linear infinite;
         }
-        nav a {
-            color: #f9f1d0;
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid rgba(249, 241, 208, 0.5);
-            border-radius: 999px;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-1px);
-        }
-        section {
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(4px);
-        }
-        section:nth-of-type(even) {
-            background: rgba(255, 255, 255, 0.04);
-        }
-        h1, h2 {
-            font-family: 'Lucida Console', Monaco, monospace;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
+
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.4rem;
+            font-size: 3.5rem;
+            color: #0ff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            animation: neon-glow 3s ease-in-out infinite;
+            font-weight: bold;
         }
+
+        .role {
+            font-size: 1.5rem;
+            color: #ff006e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 10px #ff006e;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        nav {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #0ff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #0ff;
+            background: rgba(0, 255, 255, 0.05);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 10px rgba(0, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 3rem 2rem;
+            margin: 0;
+            border-top: 2px solid rgba(0, 255, 136, 0.3);
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.8), rgba(20, 10, 40, 0.8));
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff006e, #0ff, #ff006e);
+            opacity: 0;
+        }
+
+        section:nth-child(odd)::before {
+            opacity: 0.7;
+        }
+
         h2 {
-            font-size: 1.8rem;
-            color: #ffe29f;
+            font-size: 2.2rem;
+            color: #ff006e;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #ff006e;
+            border-bottom: 2px solid #0ff;
+            padding-bottom: 0.5rem;
+            display: inline-block;
         }
-        p, li {
+
+        h3 {
+            color: #0ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 8px #0ff;
+        }
+
+        p {
+            color: #00ff88;
+            margin-bottom: 1rem;
             font-size: 1rem;
-            color: #f7eef5;
         }
-        ul {
-            list-style: disc inside;
-            padding-left: 0;
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
         }
+
+        li {
+            color: #00ff88;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        li::before {
+            content: '▶';
+            color: #0ff;
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        .project-box {
+            background: rgba(0, 255, 255, 0.08);
+            border: 2px solid #0ff;
+            border-radius: 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .project-box:hover {
+            background: rgba(0, 255, 255, 0.12);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), inset 0 0 15px rgba(0, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .project-title {
+            color: #ff006e;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px #ff006e;
+        }
+
+        .project-description {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            color: #0ff;
+            text-decoration: none;
+            border-bottom: 2px solid #0ff;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        .cred-box {
+            background: rgba(255, 0, 110, 0.1);
+            border-left: 4px solid #ff006e;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 0 15px rgba(255, 0, 110, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cred-box:hover {
+            background: rgba(255, 0, 110, 0.15);
+            box-shadow: 0 0 25px rgba(255, 0, 110, 0.4);
+        }
+
+        .contact-item {
+            color: #00ff88;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        .contact-item strong {
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+        }
+
         a {
-            color: #ffd97d;
+            color: #0ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
+
+        a:hover {
+            text-shadow: 0 0 10px #0ff;
+            color: #ff006e;
+        }
+
         footer {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(25, 10, 35, 0.95));
+            border-top: 3px solid #ff006e;
+            padding: 2rem;
             text-align: center;
-            padding: 1rem;
-            background: #2d003f;
-            color: #f9f1d0;
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ff, transparent);
+            margin: 2rem 0;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            nav a {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>JALYN B. ALEXANDER II</h1>
+        <div class="role">⚡ Electrical Engineer ⚡</div>
+        <div class="subtitle">Java Developer | Lifeguard | Creative Technologist</div>
         <nav>
-            <a href="#about">About Me</a>
+            <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact Info</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <!-- About Me Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>
-            <!-- Add a brief introduction about yourself here -->
-            Hello! My name is [Your Name]. I am passionate about [your interests or profession]. 
-            Welcome to my portfolio website!
-        </p>
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I'm an aspiring electrical engineer with a passion for innovation and problem-solving. I've progressed 
+                through rigorous engineering coursework through my junior year, transitioning into Computer Science 
+                Principles (CSP) and Computer Science A (CSA) during my senior year. My academic journey has given me 
+                a strong foundation in analytical thinking and technical skills.
+            </p>
+            
+            <h3>Who I Am</h3>
+            <ul>
+                <li><strong>Determined:</strong> I'm committed to completing every task I start, pushing through challenges to achieve quality results.</li>
+                <li><strong>People-Oriented:</strong> I'm kind-hearted and genuinely enjoy meeting new people. I excel at navigating different personality types both in professional and social settings.</li>
+                <li><strong>Versatile Leader:</strong> My ability to adapt to various environments and connect with diverse teams makes me a valuable collaborator.</li>
+            </ul>
+
+            <h3>Background</h3>
+            <ul>
+                <li>Part-time Lifeguard at Mission Valley YMCA</li>
+                <li>Multiple Emergency Response Certifications (CPR/AED, HSI, BLS, First Aid)</li>
+                <li>Passionate about technology, fitness, and community wellness</li>
+            </ul>
+
+            <h3>Interests & Hobbies</h3>
+            <ul>
+                <li>🛹 Skateboarding</li>
+                <li>👥 Hanging out with friends</li>
+                <li>💪 Hitting the gym</li>
+                <li>💻 Coding & Tech Projects</li>
+            </ul>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>Projects</h2>
-        <p>
-            <!-- Add a list or description of your projects here -->
-            Here are some of the projects I have worked on:
-        </p>
-        <ul>
-            <li>Project 1: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-            <li>Project 2: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-        </ul>
+        <div class="container">
+            <h2>Projects</h2>
+            
+            <div class="project-box">
+                <div class="project-title">🎮 Mini Game Center</div>
+                <p style="color: #ff006e; margin: 0.5rem 0; font-style: italic;">Java | Control Flow & User Interaction</p>
+                <div class="project-description">
+                    A comprehensive game arcade application that demonstrates core programming concepts including conditionals, 
+                    loops, and string manipulation. Users can enjoy three interactive mini-games from one unified interface.
+                </div>
+                <h4 style="color: #0ff; margin-top: 1rem; font-size: 0.95rem;">Features:</h4>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Rock Paper Scissors:</strong> Play against AI with random selection logic</li>
+                    <li><strong>Word Reverser:</strong> Input any text and instantly see it reversed</li>
+                    <li><strong>Guess the Number:</strong> Guess a random number 1-10 with helpful hints for high/low guesses</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="https://codehs.com/sandbox/id/jalyn-alexander-mini-game-project-d441dv" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </p>
+            </div>
+
+            <div class="project-box">
+                <div class="project-title">💪 Weekly Health Tracker</div>
+                <p style="color: #ff006e; margin: 0.5rem 0; font-style: italic;">Java | Object-Oriented Programming | Data Management</p>
+                <div class="project-description">
+                    A practical health and wellness application that helps users track their weekly meal intake against 
+                    personalized calorie goals. Demonstrates OOP principles with multiple classes working together seamlessly.
+                </div>
+                <h4 style="color: #0ff; margin-top: 1rem; font-size: 0.95rem;">Features:</h4>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Set personalized weekly calorie goals</li>
+                    <li>Browse curated list of 16 healthy meal options</li>
+                    <li>Log meals throughout the week</li>
+                    <li>Automatic calorie calculation and weekly summary</li>
+                    <li>Goal comparison feedback (over, under, or exact match)</li>
+                </ul>
+                <h4 style="color: #0ff; margin-top: 1rem; font-size: 0.95rem;">Classes:</h4>
+                <ul style="margin-top: 0.5rem;">
+                    <li><code style="color: #00ff88;">Meal.java</code> - Represents individual meal data</li>
+                    <li><code style="color: #00ff88;">HealthTracker.java</code> - Manages weekly meal collection and calculations</li>
+                    <li><code style="color: #00ff88;">Main.java</code> - User interface and program flow</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="https://github.com/phAPCSAperiod2/final-project-Jalyn135" target="_blank" class="project-link">
+                        View GitHub Repository →
+                    </a>
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- Credentials Section -->
     <section id="credentials">
-        <h2>Credentials</h2>
-        <p>
-            <!-- Add your credentials, certifications, or achievements here -->
-            I have earned the following certifications and achievements:
-        </p>
-        <ul>
-            <li>Certification 1: [Details]</li>
-            <li>Certification 2: [Details]</li>
-            <li>Certification 3: [Details]</li>
-            <!-- Add images of your certification digital badges -->
-        </ul>
+        <div class="container">
+            <h2>Credentials & Achievements</h2>
+            
+            <h3 style="color: #ff006e;">Certifications (Issued 2026)</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">All certifications issued by <strong>Anna Zick</strong> at Mission Valley YMCA</p>
+            
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🚨 CPR/AED Certification</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Advanced Life Support & Automated External Defibrillator Training</div>
+            </div>
+
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🏊 HSI (Hydroponics Safety Instructor)</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Aquatic Safety & Water Rescue Protocol Certification</div>
+            </div>
+
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">❤️ BLS (Basic Life Support)</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Healthcare Provider-level Life Support Training</div>
+            </div>
+
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🩹 First Aid Certification</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Comprehensive Emergency Medical Response Training</div>
+            </div>
+
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">💨 Emergency Oxygen Administration</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Specialized Medical Gas Administration Training</div>
+            </div>
+
+            <h3 style="color: #ff006e; margin-top: 2rem;">Academic Honors</h3>
+            
+            <div class="cred-box">
+                <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🎓 4.0 Honor Roll</div>
+                <div style="color: #00ff88; margin-top: 0.3rem;">Fall Semester 2025-2026</div>
+            </div>
+        </div>
     </section>
 
-    <!-- Contact Info Section -->
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Info</h2>
-        <p>
-            <!-- Add your contact information here -->
-            Feel free to reach out to me:
-        </p>
-        <ul>
-            <li>Email: [your-email@example.com]</li>
-            <li>LinkedIn: <a href="[your-linkedin-profile]" target="_blank">[Your LinkedIn]</a></li>
-        </ul>
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out! I'm always excited to connect with fellow tech enthusiasts, potential collaborators, or anyone interested in my work.</p>
+            
+            <div class="contact-item">
+                <strong>📞 Phone:</strong> (619) 495-8773
+            </div>
+            
+            <div class="contact-item">
+                <strong>📧 Email:</strong> <a href="mailto:jalynalexander28@gmail.com">jalynalexander28@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <strong>📱 Instagram:</strong> <a href="https://instagram.com/jalyn.bryce" target="_blank">@jalyn.bryce</a>
+            </div>
+
+            <div class="divider"></div>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">
+                💡 <em>Let's build something amazing together!</em>
+            </p>
+        </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 Jalyn B. Alexander II | All rights reserved</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">🎮 Neon Arcade Aesthetic | Portfolio v1.0</p>
     </footer>
 </body>
 </html>
